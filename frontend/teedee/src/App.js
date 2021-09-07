@@ -1,10 +1,19 @@
 import "./App.css";
-import AuthenticationPage from "./Components/Login";
+import { Switch, Route } from "react-router-dom";
+import AuthenticationPage from "./Components/Authentication";
+import TodoPage from "./Components/TodoPage";
 
 function App() {
   return (
     <div className="App">
-      <AuthenticationPage />
+      <Switch>
+        <Route path="/todos" exact>
+          <TodoPage />
+        </Route>
+        <Route path="/">
+          <AuthenticationPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
